@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Binding toAttributes</title>
+  <script src="https://unpkg.com/vue@2.2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ sayHello() }} - <a v-bind:href="link">Google</a></h1>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: "VueJS 2",
+        link: "http://www.google.com"
+      },
+      methods: {
+        sayHello: function() {
+          return 'Hello from method!'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
