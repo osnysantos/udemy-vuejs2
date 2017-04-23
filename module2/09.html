@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening to Keyboard Events</title>
+  <script src="https://unpkg.com/vue@2.2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="button" value="Count" v-on:click="increase(2, $event)">
+    {{ counter }}<br>
+    <p v-on:mousemove="updateCoordinates">
+      Coordinates: {{ x }} - {{ y }}
+      - <span v-on:mousemove.stop>STOP</span>
+    </p>
+    <div>
+      <input type="text" v-on:keyup.space.enter="alertMe">
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        increase: function(step, event) {
+          this.counter += step;
+        },
+        updateCoordinates: function(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+        },
+        alertMe: function () {
+          alert("Alert me!");
+        }
+      }
+    })
+  </script>
+</body>
+</html>
