@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Event Data from the Event Object</title>
+  <script src="https://unpkg.com/vue@2.2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="button" value="Count" v-on:click="increase">
+    {{ counter }}<br>
+    <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} - {{ y }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        increase: function() {
+          this.counter++;
+        },
+        updateCoordinates: function(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
