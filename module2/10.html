@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Using Two-Way-Binding</title>
+  <script src="https://unpkg.com/vue@2.2.6"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="name">
+    <p>{{ name }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: "Osny"
+      }
+    })
+  </script>
+</body>
+</html>
